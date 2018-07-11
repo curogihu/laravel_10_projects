@@ -15,21 +15,13 @@
                 @if(count($listings))
                     <table class="table table-striped">
                         <tr>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Website</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Bio</th>
+                            <th>Company</th>
+                            <th></th>
                         </tr>
                         @foreach($listings as $listing)
                             <tr>
                                 <td>{{ $listing->name }}</td>
-                                <td>{{ $listing->address }}</td>
-                                <td>{{ $listing->website }}</td>
-                                <td>{{ $listing->email }}</td>
-                                <td>{{ $listing->phone }}</td>
-                                <td>{{ $listing->bio }}</td>
+                                <td><a class="pull-right btn btn-default" href="/listings/{{ $listing->id }}/edit">Edit</a></td>
                             </tr>
                         @endforeach
                     </table>
