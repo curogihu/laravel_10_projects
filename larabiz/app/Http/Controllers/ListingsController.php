@@ -7,6 +7,11 @@ use App\Listing;
 
 class ListingsController extends Controller
 {
+    // index, showを除く機能はログイン必須にする
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,8 @@ class ListingsController extends Controller
      */
     public function index()
     {
-        //
+        $listings = Listing::orderBy('created_at', 'desc')->get();
+        return view('listings', compact('listings'));
     }
 
     /**
@@ -62,7 +68,8 @@ class ListingsController extends Controller
      */
     public function show($id)
     {
-        //
+        $listing = Listing::find($id);
+        return view('showlisting', compact('listing'));
     }
 
     /**
