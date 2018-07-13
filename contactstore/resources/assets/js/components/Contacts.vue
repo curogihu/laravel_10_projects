@@ -25,7 +25,7 @@
 		<h1>Contacts</h1>
 		<ul class="list-group">
 			<li class="list-group-item" v-for="contact in list">
-				<strong></strong>{{ contact.name }}</strong> {{ contact.email }} {{ contact.phone }}
+				<strong>{{ contact.name }}</strong> {{ contact.email }} {{ contact.phone }}
 				<button @click="showContact(contact.id)" class="btn btn-default btn-xs">Edit</button>
 				<button @click="deleteContact(contact.id)" class="btn btn-danger btn-xs">Delete</button>
 			</li>
@@ -60,8 +60,8 @@
 						.then((response) =>  {
 							console.log(response.data);
 							this.list = response.data;
-
-				 		}).catch((error) => {
+				 		})
+				 		.catch((error) => {
 				 			console.log(error);
 				 		});
 			}
@@ -122,7 +122,7 @@
 							self.fetchContactList();
 						}).catch(function(error) {
 							console.log(error);
-						})
+						});
 			}
 		}
 	}

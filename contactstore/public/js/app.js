@@ -43487,8 +43487,7 @@ var render = function() {
       { staticClass: "list-group" },
       _vm._l(_vm.list, function(contact) {
         return _c("li", { staticClass: "list-group-item" }, [
-          _c("strong"),
-          _vm._v(_vm._s(contact.name)),
+          _c("strong", [_vm._v(_vm._s(contact.name))]),
           _vm._v(
             " " +
               _vm._s(contact.email) +
