@@ -117,6 +117,8 @@
 			}
 
 			,deleteContact: function(id) {
+				let self = this;
+
 				axios.delete('api/contact/' + id)
 						.then(function(response) {
 							self.fetchContactList();
