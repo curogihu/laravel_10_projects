@@ -14,6 +14,32 @@
 	</nav>
 
 	<div class="container">
+		<form class="well" action="{{ route('post.tweet') }}" method="post" enctype="multipart/form-data">
+			{{ csrf_field() }}
+
+			@if(count($errors) > 0)
+				@foreach($errors->all() as $error)
+					<div class="alert alert-danger">
+						{{ $error }}
+					</div>
+				@endforeach
+			@endif
+
+			<div class="form-group">
+				<label>Tweet Text</label>
+				<input type="text" name="tweet" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label>Upload Images</label>
+				<input type="file" name="images[]" multiple class="form-control">
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-success">Create Tweet</button>
+			</div>
+		</form>
+
 		@if(!empty($data))
 			@foreach($data as $key => $tweet)
 				<div class="well">

@@ -16,4 +16,26 @@ class TwitterController extends Controller
 
     	return view('twitter', compact('data'));
     }
+
+    public function tweet(Request $request) {
+    	$this->validate($request, [
+    		'tweet' => 'required'
+    	]);
+
+    	$newTweet = ['status' => $request->tweet];
+
+    	if(!empty($request->images)) {
+    		foreach($request->images as $key => $value) {
+    			$uploadMedia = Twitter::uploadMedia(['media' => File::get($value->getRealPath())]);
+
+    			if(!empty($uploadMedia)) {
+    				$newTweet['media_ids'][$uploadMedia->media_id_string] = $uploadMedia->media_id_string;
+    			}
+    		}
+    	}
+
+    	$twitter = Twitter::postTweet($newTweet);
+
+    	return back();
+    }
 }
