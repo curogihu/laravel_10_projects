@@ -12,33 +12,16 @@
 		<div id="albums">
 			<div class="row text-center">
 				@foreach($albums as $album)
-					@if($i == $colcount)
-						<div class="medium-4 columns end">
-							<a href="/albums/{{ $album->id }}">
-								<img class="thumbnail"
-										src="storage/album_covers/{{ $album->cover_image }}"
-										alt="{{ $album->name }}">
-							</a>
-							<br>
-							<h4>{{ $album->name }}</h4>
-						</div>
-
-					@else
-						<div class="medium-4 columns">
-							<a href="/albums/{{ $album->id }}">
-								<img class="thumbnail"
-										src="storage/album_covers/{{ $album->cover_image }}"
-										alt="{{ $album->name }}">
-							</a>
-							<br>
-							<h4>{{ $album->name }}</h4>
-						</div>
-					@endif
+					<div class="medium-4 columns <?php echo $i == $colcount ? ' end' : null ; ?>">
+						<a href="/albums/{{ $album->id }}">
+							<img class="thumbnail" src="storage/album_covers/{{ $album->cover_image }}" alt="{{ $album->name }}">
+						</a>
+						<br>
+						<h4>{{ $album->name }}</h4>
+					</div>
 
 					@if($i % 3 == 0)
-						</div></div><div class="row text-center">
-					@else
-						</div>
+						<div class="row text-center">
 					@endif
 
 					<?php $i++; ?>
