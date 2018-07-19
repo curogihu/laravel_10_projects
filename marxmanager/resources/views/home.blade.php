@@ -22,7 +22,7 @@
                             <li class="list-group-item clearfix">
                                 <a href="{{ $bookmark->url }}" target="_blank" style="position:absolute; top:30%">{{ $bookmark->name }} <span class="label label-default">{{ $bookmark->description }}</span></a>
                                 <span class="pull-right button-group">
-                                    <button type="button" class="btn btn-danger" name="button">
+                                    <button data-id="{{ $bookmark->id }}" type="button" class="delete-bookmark btn btn-danger" name="button">
                                         <span class="glyphicon glyphicon-remove"></span>Delete</button>
                                 </span>
                             </li>

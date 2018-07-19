@@ -35,4 +35,12 @@ class BookmarksController extends Controller
 
     	return redirect('/home')->with('success', 'Bookmark Added');
     }
+
+    public function destroy($id) {
+    	$bookmark = Bookmark::find($id);
+    	$bookmark->delete();
+
+    	// リダイレクト先はrecourses/assets/js/custom.jsに記載済み
+    	return;
+    }
 }
