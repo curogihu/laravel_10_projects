@@ -19,6 +19,14 @@ sortOrder = "published_at desc"
 </div>
 
 <div class="sidebar-segment">
+    <h2 class="segment-title">Main Menu</h2>
+    <ul class="segment-list">
+        <li><a href="{{ 'home'|page }}">Home</a></li>
+        <li><a href="{{ 'contact'|page }}">Contact</a></li>
+    </ul>
+</div>
+
+<div class="sidebar-segment">
     <h2 class="segment-title">Recent posts</h2>
     <ul class="segment-list">
         {% for post in blogPosts.posts %}
