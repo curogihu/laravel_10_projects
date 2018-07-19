@@ -1,0 +1,16 @@
+name: acme
+description: 'simple bootswatch theme'
+author: hikozuma
+homepage: ''
+code: ''
+form:
+  fields:
+    site_name:
+      label: Site name
+      commet: The global website name
+      default: Acme
+
+    site_description:
+      label: Site description
+      commet: The global website description
+      default: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi reiciendis harum maiores illum ea quam, eius quo praesentium, asperiores impedit accusamus beatae, fugit ut suscipit atque cum iusto nobis minus?
